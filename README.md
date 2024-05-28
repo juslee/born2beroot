@@ -10,4 +10,10 @@ openssl passwd -6 'password'
 ```
 Remember to add quotes to the hashed password in the verify_password.sh script.
 
+### Encryption Disk
+Please change the passphrase of the encrypted disk with the following command in the preseed.cfg file:
+``` bash
+d-i partman-crypto/passphrase string mypassword
+d-i partman-crypto/passphrase-again string mypassword
+```
 
