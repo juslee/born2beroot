@@ -15,7 +15,7 @@ TCP=$(grep TCP /proc/net/sockstat | awk '{print $3}')
 USER_LOG=$(who | wc -l)
 IP_ADDR=$(hostname -I | awk '{print $1}')
 MAC_ADDR=$(ip address | grep link/ether | awk '{print $2}')
-SUDO_LOG=$(journalctl -e "/usr/bin/sudo" | grep --count COMMAMND)
+CMDS=$(journalctl _COMM=sudo | grep --count COMMAND)
 
 wall "    #Architecture: $ARCH
     #CPU physical: $PCPU
@@ -28,4 +28,4 @@ wall "    #Architecture: $ARCH
     #Connections TCP: $TCP established
     #Users log: $USER_LOG
     #Network: IP $IP_ADDR ($MAC_ADDR)
-    #Sudo: $SUDO_LOG cmd"
+    #Sudo: $CMDS cmd"
