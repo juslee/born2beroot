@@ -4,7 +4,7 @@ PCPU=$(grep 'physical id' /proc/cpuinfo | uniq | wc -l)
 VCPU=$(grep processor /proc/cpuinfo | uniq | wc -l)
 RAM_TOTAL=$(free --mega --human | grep 'Mem' | awk '{print $2}')
 RAM_USED=$(free --mega | grep 'Mem' | awk '{print $3}')
-RAM_PERC=$(free -mega | grep 'Mem' | awk '{printf("%.2f%%"), $3 / $2 * 100}')
+RAM_PERC=$(free --mega | grep 'Mem' | awk '{printf("%.2f%%"), $3 / $2 * 100}')
 DISK_TOTAL=$(df --human-readable --total | grep 'total' | awk '{print $2}')
 DISK_USED=$(df --human-readable -B1M --total | grep 'total' | awk '{print $3}')
 DISK_PERC=$(df --human-readable --total | grep 'total' | awk '{print $5}')
@@ -18,8 +18,7 @@ MAC_ADDR=$(ip address | grep link/ether | awk '{print $2}')
 SUDO='/usr/bin/sudo'
 SUDO_LOG=$([[ -d ${SUDO} ]] || journalctl -e "${SUDO}" | grep --count COMMAMND)
 
-wall "
-    #Architecture: $ARCH
+wall "    #Architecture: $ARCH
     #CPU physical: $PCPU
     #vCPU: $VCPU
     #Memory Usage: $RAM_USED/$RAM_TOTAL ($RAM_PERC)
