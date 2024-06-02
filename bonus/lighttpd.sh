@@ -9,3 +9,4 @@ sed -i 's#"bin-path" => "\/usr\/bin\/php-cgi",/"host" => "127.0.0.1",#' /etc/lig
 sed -i 's#"socket" => "\/run\/lighttpd\/php.socket",/"port" => "80",#' /etc/lighttpd/conf-available/15-fastcgi-php.conf
 lighty-enable-mod fastcgi
 lighty-enable-mod fastcgi-php
+service lighttpd force-reload
