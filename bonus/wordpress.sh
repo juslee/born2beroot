@@ -1,5 +1,5 @@
 #!/bin/bash
-wget -O /tmp/latest.tar.gz https://wordpress.org/latest.tar.gz
+wget -O /tmp/latest.tar.gz http://wordpress.org/latest.tar.gz
 tar -xzvf /tmp/latest.tar.gz
 mv /tmp/wordpress/* /var/www/html
 mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
