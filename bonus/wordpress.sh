@@ -27,7 +27,7 @@ sed -i "s/username_here/$DB_USER/" $WP_PATH/wp-config.php
 sed -i "s/password_here/$DB_PASSWORD/" $WP_PATH/wp-config.php
 
 # Generate Authentication Keys and Salts
-curl -s https://api.wordpress.org/secret-key/1.1/salt/ > /tmp/wp.keys
+wget -qO- https://api.wordpress.org/secret-key/1.1/salt/ > /tmp/wp.keys
 sed -i '/AUTH_KEY/d' $WP_PATH/wp-config.php
 sed -i '/SECURE_AUTH_KEY/d' $WP_PATH/wp-config.php
 sed -i '/LOGGED_IN_KEY/d' $WP_PATH/wp-config.php
@@ -39,12 +39,11 @@ sed -i '/NONCE_SALT/d' $WP_PATH/wp-config.php
 cat /tmp/wp.keys >> $WP_PATH/wp-config.php
 
 # Install WP-CLI
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 # Install WordPress
-cd $WP_PATH
 sudo -u www-data wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
 
 # Clean up

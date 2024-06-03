@@ -7,8 +7,8 @@ DB_PASSWORD="mypassword"
 DB_ROOT_PASSWORD="mypassword"
 
 # Install MariaDB
-echo "mariadb-server mariadb-server/root_password password $DB_ROOT_PASSWORD" | debconf-set-selections
-echo "mariadb-server mariadb-server/root_password_again password $DB_ROOT_PASSWORD" | debconf-set-selections
+# echo "mariadb-server mariadb-server/root_password password $DB_ROOT_PASSWORD" | debconf-set-selections
+# echo "mariadb-server mariadb-server/root_password_again password $DB_ROOT_PASSWORD" | debconf-set-selections
 
 # apt-get update
 # apt-get install -y mariadb-server
