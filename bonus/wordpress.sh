@@ -46,8 +46,4 @@ mv wp-cli.phar /usr/local/bin/wp
 # Install WordPress
 sudo -u www-data wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
 
-# Clean up
-rm /tmp/latest.tar.gz
-rm /tmp/wp.keys
-
 echo "WordPress installation completed successfully!"
