@@ -4,6 +4,7 @@
 DB_NAME="wordpress_db"
 DB_USER="admin"
 DB_PASSWORD="mypassword"
+DB_ROOT_PASSWORD="mypassword"
 WP_URL="http://localhost:8080"
 WP_TITLE="My WordPress Site"
 WP_ADMIN_USER="admin"
@@ -19,6 +20,12 @@ mv /tmp/wordpress/* $WP_PATH
 # Set Permissions
 sudo chown -R www-data:www-data $WP_PATH
 sudo chmod -R 755 $WP_PATH
+
+# Create WordPress Database
+mysql -u root -p$DB_ROOT_PASSWORD -e "CREATE DATABASE $DB_NAME;"
+mysql -u root -p$DB_ROOT_PASSWORD -e "CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASSWORD';"
+mysql -u root -p$DB_ROOT_PASSWORD -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';"
+mysql -u root -p$DB_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
 
 # Create wp-config.php
 cp $WP_PATH/wp-config-sample.php $WP_PATH/wp-config.php
