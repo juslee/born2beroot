@@ -2,8 +2,6 @@
 systemctl enable mariadb
 systemctl start mariadb
 
-apt install -y expect
-
 MYSQL_ROOT_PASSWORD="mypassword"
 MYSQL_USER_PASSWORD="mypassword"
 
@@ -22,5 +20,3 @@ CREATE USER 'admin'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';
 GRANT ALL PRIVILEGES ON wordpress_db.* TO 'admin'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 "
-
-apt purge -y expect
