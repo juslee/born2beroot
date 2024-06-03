@@ -14,7 +14,7 @@ DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
 FLUSH PRIVILEGES;
 "
 
-mysql -u root -p${MYSQL_ROOT_PASSWORD} "
+mysql -u root -p${MYSQL_ROOT_PASSWORD} -e "
 CREATE DATABASE wordpress_db;
 CREATE USER 'admin'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';
 GRANT ALL PRIVILEGES ON wordpress_db.* TO 'admin'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}' WITH GRANT OPTION;
