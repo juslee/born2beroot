@@ -4,7 +4,7 @@
 DB_NAME="wordpress_db"
 DB_USER="admin"
 DB_PASSWORD="mypassword"
-WP_URL="http://localhost"
+WP_URL="http://localhost:8080"
 WP_TITLE="My WordPress Site"
 WP_ADMIN_USER="admin"
 WP_ADMIN_PASSWORD="mypassword"
@@ -44,6 +44,6 @@ chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
 # Install WordPress
-sudo -u www-data wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
+sudo -u www-data wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL --path=$WP_PATH
 
 echo "WordPress installation completed successfully!"
