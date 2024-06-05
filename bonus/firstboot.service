@@ -1,0 +1,12 @@
+[Unit]
+Description=First Boot Setup for MariaDB and Wordpress
+After=network.target mariadb.service
+Requires=mariadb.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wordpress.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
