@@ -25,4 +25,4 @@ fi
 chmod +x /usr/local/bin/monitoring.sh
 
 # Execute the downloaded script
-echo '*/10 * * * * /usr/local/bin/monitoring.sh' | crontab -u welee -
+echo '*/10 * * * * /usr/local/bin/monitoring.sh' | crontab -u root -
