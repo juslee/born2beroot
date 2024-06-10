@@ -13,3 +13,11 @@ mkdir -p /var/log/sudo
 chmod 0750 /var/log/sudo
 chown root:root /var/log/sudo
 chmod 440 /etc/sudoers.d/welee
+chmod 440 /etc/sudoers.d/passwd_tries
+chmod 440 /etc/sudoers.d/badpass_message
+chmod 440 /etc/sudoers.d/logfile
+chmod 440 /etc/sudoers.d/log_input
+chmod 440 /etc/sudoers.d/iolog_dir
+chmod 440 /etc/sudoers.d/requiretty
+chmod 440 /etc/sudoers.d/secure_path
+chmod 750 /etc/sudoers.d
