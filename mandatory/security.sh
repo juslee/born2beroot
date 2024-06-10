@@ -10,4 +10,13 @@ sed -i 's/^# lcredit = 0/lcredit = -1/' /etc/security/pwquality.conf
 sed -i 's/^# maxrepeat = 0/maxrepeat = 3/' /etc/security/pwquality.conf
 sed -i 's/^# usercheck = 1/usercheck = 1/' /etc/security/pwquality.conf
 sed -i 's/^# retry = 3/retry = 3/' /etc/security/pwquality.conf
+sed -i 's/^# enforce_for_root/enforce_for_root/' /etc/security/pwquality.conf
 sed -i 's/^# enforcing = 1/enforcing = 1/' /etc/security/pwquality.conf
+
+chage --maxdays 30 root
+chage --mindays 2 root
+chage --warndays 7 root
+
+chage --maxdays 30 welee
+chage --mindays 2 welee
+chage --warndays 7 welee
